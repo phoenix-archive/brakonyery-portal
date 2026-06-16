@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Внутренняя сеть организации «Браконьеры»</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-1"></div>
+  <div class="ambient ambient-2"></div>
+  <div class="grid-overlay"></div>
+  <div class="scanline"></div>
+
+  <main class="app-shell">
+    <section id="authScreen" class="auth-screen">
+      <div class="auth-card glass">
+        <div class="brand-lockup">
+          <div class="logo-wrap" aria-hidden="true">
+            <svg class="org-logo" viewBox="0 0 120 120" role="img" aria-label="Логотип организации Браконьеры">
+              <defs>
+                <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ff5a5f" />
+                  <stop offset="100%" stop-color="#9f1f24" />
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="60" r="52" fill="none" stroke="url(#logoGrad)" stroke-width="4" opacity="0.95" />
+              <circle cx="60" cy="60" r="34" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+              <path d="M60 22 L76 44 L94 50 L82 66 L86 86 L60 78 L34 86 L38 66 L26 50 L44 44 Z" fill="rgba(255,90,95,0.12)" stroke="url(#logoGrad)" stroke-width="2.5" />
+              <path d="M60 36 L68 56 L90 60 L68 64 L60 84 L52 64 L30 60 L52 56 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)" stroke-width="1.5" />
+              <circle cx="60" cy="60" r="6" fill="#ff5a5f" />
+            </svg>
+          </div>
+          <div>
+            <p class="eyebrow">ЗАЩИЩЁННЫЙ КАНАЛ ДОСТУПА</p>
+            <h1>ВНУТРЕННЯЯ СЕТЬ ОРГАНИЗАЦИИ «БРАКОНЬЕРЫ»</h1>
+            <p class="subheading">Доступ только для авторизованного персонала.</p>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <span class="status-pill ok">Сеть защищена</span>
+          <span class="status-pill">Уровень доступа: Сотрудник</span>
+        </div>
+
+        <form id="authForm" class="auth-form" autocomplete="off">
+          <label>
+            <span>Имя пользователя</span>
+            <input type="text" id="username" placeholder="Введите имя пользователя" required minlength="3" />
+          </label>
+          <label>
+            <span>Электронная почта</span>
+            <input type="email" id="email" placeholder="name@domain.com" required />
+          </label>
+          <label>
+            <span>Пароль</span>
+            <input type="password" id="password" placeholder="Не менее 6 символов" required minlength="6" />
+          </label>
+          <button type="submit" class="primary-btn">Войти в систему</button>
+          <p id="authMessage" class="auth-message" aria-live="polite"></p>
+        </form>
+
+        <div class="warning-box">
+          <strong>ВНИМАНИЕ.</strong>
+          <p>Данная сеть является собственностью организации.</p>
+          <p>Любая попытка несанкционированного доступа, копирования, распространения или изменения информации фиксируется и влечёт дисциплинарную и административную ответственность.</p>
+          <p>Все действия пользователей протоколируются.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="portalScreen" class="portal-screen hidden">
+      <header class="topbar glass">
+        <div class="topbar-left">
+          <div class="logo-mini" aria-hidden="true">
+            <svg viewBox="0 0 120 120" class="org-logo small">
+              <defs>
+                <linearGradient id="logoGradSmall" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ff5a5f" />
+                  <stop offset="100%" stop-color="#9f1f24" />
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="60" r="52" fill="none" stroke="url(#logoGradSmall)" stroke-width="4" />
+              <path d="M60 22 L76 44 L94 50 L82 66 L86 86 L60 78 L34 86 L38 66 L26 50 L44 44 Z" fill="rgba(255,90,95,0.10)" stroke="url(#logoGradSmall)" stroke-width="2.5" />
+              <circle cx="60" cy="60" r="6" fill="#ff5a5f" />
+            </svg>
+          </div>
+          <div>
+            <div class="org-name">Организация «Браконьеры»</div>
+            <div class="org-meta">Внутренний корпоративный портал</div>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="user-chip">
+            <span class="chip-label">Пользователь</span>
+            <span id="activeUser">—</span>
+          </div>
+          <button id="logoutBtn" class="secondary-btn">Выйти</button>
+        </div>
+      </header>
+
+      <section class="portal-hero glass">
+        <div>
+          <p class="eyebrow">БАЗОВАЯ ИНФОРМАЦИЯ</p>
+          <h2>Добро пожаловать во внутреннюю сеть</h2>
+          <p class="hero-copy">Выберите раздел для просмотра закрытых материалов и служебных сведений.</p>
+        </div>
+        <div class="network-panel">
+          <div class="network-stat">
+            <span>Сеть</span>
+            <strong>Защищена</strong>
+          </div>
+          <div class="network-stat">
+            <span>Доступ</span>
+            <strong>Сотрудник</strong>
+          </div>
+          <div class="network-stat">
+            <span>Состояние</span>
+            <strong>Синхронизировано</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="cards-grid" id="cardsGrid">
+        <button class="info-card glass" data-section="who">
+          <span class="card-index">01</span>
+          <h3>Кто мы?</h3>
+          <p>Краткое описание организации и её роли.</p>
+        </button>
+        <button class="info-card glass" data-section="mission">
+          <span class="card-index">02</span>
+          <h3>Наша миссия</h3>
+          <p>Цели, ради которых существует структура.</p>
+        </button>
+        <button class="info-card glass" data-section="future">
+          <span class="card-index">03</span>
+          <h3>Наше будущее</h3>
+          <p>Вектор развития и долгосрочные ориентиры.</p>
+        </button>
+        <button class="info-card glass" data-section="principles">
+          <span class="card-index">04</span>
+          <h3>Наши принципы</h3>
+          <p>Базовые установки сотрудников организации.</p>
+        </button>
+        <button class="info-card glass" data-section="message">
+          <span class="card-index">05</span>
+          <h3>Обращение к сотрудникам</h3>
+          <p>Вступительное слово для участников проекта.</p>
+        </button>
+      </section>
+    </section>
+  </main>
+
+  <div id="scanOverlay" class="scan-overlay hidden" aria-hidden="true">
+    <div class="scan-window glass">
+      <div class="scan-title">Проверка защищённого канала</div>
+      <div class="scan-progress"><span></span></div>
+      <div class="scan-text">Идёт подтверждение учётных данных и синхронизация сетевого профиля...</div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-card glass">
+      <button class="modal-close" id="modalClose" aria-label="Закрыть окно">×</button>
+      <p class="eyebrow">Информационный раздел</p>
+      <h3 id="modalTitle"></h3>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <template id="section-template">
+    <article class="section-content">
+      <p></p>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
